@@ -5,9 +5,9 @@ OBIETTIVI;
 L'obiettivo che ci si è posti come cardine dell'esperienza di tirocinio è stato quello di valutare i risultati, quindi le prestazioni,
 di più codici che eseguono virtual try-on con base (VITON). Le richieste erano quelle di capire quando i due codici confrontati
 producevano output validi e quando invece presentavano difficoltà nel produrli.
-Si è quindi deiso di analizzare diversi codici basati sul predecessore VITON e scegliere quelli che potevano avere incrementi
+Si è quindi deciso di analizzare diversi codici basati sul predecessore VITON e scegliere quelli che potevano avere incrementi
 sostanziali e visibili nelle prestazioni e nella qualità/affidabilità dei risultati.
-Durante l'esperienza di è inoltre deciso di provare ad aggiungere ulteriori obiettivi ossia: Produrre un piccolo applicativo "CANVAS"
+Durante l'esperienza si è inoltre deciso di provare ad aggiungere ulteriori obiettivi ossia: Produrre un piccolo applicativo "CANVAS"
 che permettesse la modifica del label ( suddivisione delle componenti del soggetto finale: viso, vestito, braccia, pantaloni, capelli) e applicarlo
 poi ad una demo "PITON" che permettesse ad un utente di generare differenti outfits, attraverso l'utilizzo di un dataset di campioni ridotto, potendo
 inoltre utilizzare CANVAS per modificare alcune caratteristiche degli abiti/soggetto.
@@ -15,12 +15,12 @@ inoltre utilizzare CANVAS per modificare alcune caratteristiche degli abiti/sogg
 
 COS'E' UN VIRTUAL TRY-ON:
 
-Partiamo quindi spiegando cos'è un virtual try-on. E' un modalità alterntiva con la quale un futuro cliente di un negozio
+Partiamo spiegando cos'è un virtual try-on. E' un modalità alterntiva con la quale un futuro cliente di un negozio
 di abbigliamento o di gioielli potrà provare i prodotti dei negozi in modo virtuale, senza dover fisicamente provarli 
 in camerino. Quindi attraverso l'utilizzo di un dispositivo dotato di fotocamera, l'utente può valutare se comprare o
-meno uncapo provandolo virtualmente, attraverso l'utilizzo di realtà aumentata.
+meno un capo provandolo virtualmente, attraverso l'utilizzo di realtà aumentata.
 Questo approccio, già presente da anni sul mercato ma migliorato mediante l'utilizzo di machine learning
-e modelling 3D, permette quindi provare un capo prima di acquistarlo in qualsiasi luogo, senza l'"Obbligo" di andare
+e modelling 3D, permette di provare un capo prima di acquistarlo in qualsiasi luogo, senza l'"Obbligo" di andare
 in negozio, di provare contemporaneamente più capi, valutanto anche i vari outfit e soprattutto è time-saving.
 Nel caso preso in esame si è operato su codici che prevedevano l'utilizzo di dataset di immagini prese da
 un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso l'utilizzo di modelling 3D e 
