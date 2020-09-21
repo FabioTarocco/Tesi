@@ -1,3 +1,20 @@
+
+ABSTRACT:
+
+OBIETTIVI;
+L'obiettivo che ci si è posti come cardine dell'esperienza di tirocinio è stato quello di valutare i risultati, quindi le prestazioni,
+di più codici che eseguono virtual try-on con base (VITON). Le richieste erano quelle di capire quando i due codici confrontati
+producevano output validi e quando invece presentavano difficoltà nel produrli.
+Si è quindi deiso di analizzare diversi codici basati sul predecessore VITON e scegliere quelli che potevano avere incrementi
+sostanziali e visibili nelle prestazioni e nella qualità/affidabilità dei risultati.
+Durante l'esperienza di è inoltre deciso di provare ad aggiungere ulteriori obiettivi ossia: Produrre un piccolo applicativo "CANVAS"
+che permettesse la modifica del label ( suddivisione delle componenti del soggetto finale: viso, vestito, braccia, pantaloni, capelli) e applicarlo
+poi ad una demo "PITON" che permettesse ad un utente di generare differenti outfits, attraverso l'utilizzo di un dataset di campioni ridotto, potendo
+inoltre utilizzare CANVAS per modificare alcune caratteristiche degli abiti/soggetto.
+
+
+COS'E' UN VIRTUAL TRY-ON:
+
 Partiamo quindi spiegando cos'è un virtual try-on. E' un modalità alterntiva con la quale un futuro cliente di un negozio
 di abbigliamento o di gioielli potrà provare i prodotti dei negozi in modo virtuale, senza dover fisicamente provarli 
 in camerino. Quindi attraverso l'utilizzo di un dispositivo dotato di fotocamera, l'utente può valutare se comprare o
@@ -9,3 +26,4 @@ Nel caso preso in esame si è operato su codici che prevedevano l'utilizzo di dat
 un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso l'utilizzo di modelling 3D e 
 risultati real-time applicati su video, ma sulla creazione di outfit alternativi a quelli originali utilizzando le 
 coppie modello target e vestito target.
+
