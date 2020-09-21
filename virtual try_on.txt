@@ -9,7 +9,7 @@ Si è quindi deciso di analizzare diversi codici basati sul predecessore VITON e 
 sostanziali e visibili nelle prestazioni e nella qualità/affidabilità dei risultati.
 Durante l'esperienza si è inoltre deciso di provare ad aggiungere ulteriori obiettivi ossia: Produrre un piccolo applicativo "CANVAS"
 che permettesse la modifica del label ( suddivisione delle componenti del soggetto finale: viso, vestito, braccia, pantaloni, capelli) e applicarlo
-poi ad una demo "PITON" che permettesse ad un utente di generare differenti outfits, attraverso l'utilizzo di un dataset di campioni ridotto, potendo
+poi ad una demo "PITON" che permettesse ad un utente di generare differenti outfit, attraverso l'utilizzo di un dataset di campioni ridotto, potendo
 inoltre utilizzare CANVAS per modificare alcune caratteristiche degli abiti/soggetto.
 
 
@@ -20,8 +20,8 @@ di abbigliamento o di gioielli potrà provare i prodotti dei negozi in modo virtu
 in camerino. Quindi attraverso l'utilizzo di un dispositivo dotato di fotocamera, l'utente può valutare se comprare o
 meno un capo provandolo virtualmente, attraverso l'utilizzo di realtà aumentata.
 Questo approccio, già presente da anni sul mercato ma migliorato mediante l'utilizzo di machine learning
-e modelling 3D, permette di provare un capo prima di acquistarlo in qualsiasi luogo, senza l'"Obbligo" di andare
-in negozio, di provare contemporaneamente più capi, valutanto anche i vari outfit e soprattutto è time-saving.
+e modelling 3D, permette di provare un capo prima di acquistarlo in qualsiasi luogo, senza l'"obbligo" di andare
+in negozio, di provare contemporaneamente più capi, valutando anche i vari outfit e soprattutto è time-saving.
 Nel caso preso in esame si è operato su codici che prevedevano l'utilizzo di dataset di immagini prese da
 un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso l'utilizzo di modelling 3D e 
 risultati real-time applicati su video, ma sulla creazione di outfit alternativi a quelli originali utilizzando le 
