@@ -1,0 +1,11 @@
+Partiamo quindi spiegando cos'è un virtual try-on. E' un modalità alterntiva con la quale un futuro cliente di un negozio
+di abbigliamento o di gioielli potrà provare i prodotti dei negozi in modo virtuale, senza dover fisicamente provarli 
+in camerino. Quindi attraverso l'utilizzo di un dispositivo dotato di fotocamera, l'utente può valutare se comprare o
+meno uncapo provandolo virtualmente, attraverso l'utilizzo di realtà aumentata.
+Questo approccio, già presente da anni sul mercato ma migliorato mediante l'utilizzo di machine learning
+e modelling 3D, permette quindi provare un capo prima di acquistarlo in qualsiasi luogo, senza l'"Obbligo" di andare
+in negozio, di provare contemporaneamente più capi, valutanto anche i vari outfit e soprattutto è time-saving.
+Nel caso preso in esame si è operato su codici che prevedevano l'utilizzo di dataset di immagini prese da
+un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso l'utilizzo di modelling 3D e 
+risultati real-time applicati su video, ma sulla creazione di outfit alternativi a quelli originali utilizzando le 
+coppie modello target e vestito target.
