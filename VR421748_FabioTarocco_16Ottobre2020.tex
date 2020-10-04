@@ -72,9 +72,11 @@
 	
 	È una modalità alternativa con la quale un futuro cliente di un negozio di abbigliamento o di gioielli potrà provare i prodotti dei negozi in modo virtuale, senza dover fisicamente provarli in camerino. Quindi attraverso l'utilizzo di un dispositivo dotato di fotocamera, l'utente può valutare se comprare o meno un capo provandolo virtualmente, attraverso l'utilizzo di realtà aumentata.
 	
-	Questo approccio, già presente da anni sul mercato ma migliorato mediante l'utilizzo di machine learninge modelling 3D, permette di provare un capo prima di acquistarlo in qualsiasi luogo, senza l'"obbligo" di andare in negozio, di provare contemporaneamente più capi, valutando anche i vari outfit e soprattutto è time-saving.
+	Questo approccio, già presente da anni sul mercato ma migliorato mediante l'utilizzo di machine learning
+e modelling 3D, permette di provare un capo prima di acquistarlo in qualsiasi luogo, senza l'"obbligo" di andare in negozio, di provare contemporaneamente più capi, valutando anche i vari outfit e soprattutto è time-saving.
 	
-	Nel caso preso in esame si è operato su codici che prevedevano l'utilizzo di dataset di immagini prese daun catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso l'utilizzo di modelling 3D e risultati real-time applicati su video, ma sulla creazione di outfit alternativi a quelli originali utilizzando le coppie modello target e vestito target.
+	Nel caso preso in esame si è operato su codici che prevedevano l'utilizzo di dataset di immagini prese da
+un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso l'utilizzo di modelling 3D e risultati real-time applicati su video, ma sulla creazione di outfit alternativi a quelli originali utilizzando le coppie modello target e vestito target.
 	
 	\begin{figure}[!htb]
 		\begin{center}
@@ -83,14 +85,32 @@
 	\end{figure} 
 
 	\section{VITON}
-	\subsection{Descrizione codice}
-	dsad
-	\subsection{Qualità output prodotti}
+	\subsection{Cos'è VITON?}
+	È un Virtual Try-On Image-Based realizzato e pubblicato da alcuni ricercatori/studenti dell’Università del Maryland. Hanno presentato un codice il quale si pone come obiettivo quello di produrre un’immagine di try-On andando semplicemente ad applicare il vestito (sottoforma di immagine RGB) sul soggetto senza l’ausilio di informazioni provenienti dal 3D. Il codice va quindi a sintetizzare una nuova immagine foto-realistica sovrapponendo un artefatto alla regione corrispondente al vestito del soggetto. 
 	
+	VITON nasce per risolvere i problemi delle GANs (generative adversarial network, rete generativa avversaria) le quali riescono a produrre ottimi risultati nella generazione delle immagini, traslazioni image-to-image o task di editing, ma hanno difficoltà nella realizzazione di dettagli e deformazioni realistiche di oggetti, in questo caso l’abito target.
+	
+	Il traguardo di VITON è quello di, prendendo un’immagine di un soggetto vestito come riferimento e un abito target, generare una nuova immagine dove l’abito target è trasferito nel modo più naturale possibile sul soggetto di riferimento.
+	
+	\subsection{Componenti VITON}
+	Il punto più importante durante la realizzazione dell’immagine finale è la generazione dei dettagli/deformazioni che l’abito subisce in base alla posa del soggetto. Viene quindi utilizzato una rappresentazione a 18 keypoints (coordinate su una matrice in formato MicrosoftAccess) per memorizzare le informazioni delle pose di ogni soggetto inserito nel dataset. 
+	
+	In concomitanza di questo vengono utilizzate anche delle segmentazioni, ottenute mediante un Human Parser, nelle quali si evidenziano le coordinate delle parti del corpo in cui il soggetto è suddiviso. Inoltre, per mantenere l’identità del soggetto, sono state introdotte degli attributi “fisici” come ad esempio faccia, carnagione, taglio di capelli, ecc, i quali saranno poi utilizzati in fase terminale per ricostruire l’immagine finale.
+	
+	Altra componente importante è l’operazione di Wrapping dell’abito target sul soggetto. Le informazioni necessarie alla realizzazione di un wrap realistico vengono prese direttamente dai dati acquisiti in fase di segmentazione del soggetto. La clothing mask viene utilizzata in fase finale per il riempimento in modo corretto delle zone del soggetto in cui l’abito target dovrà esser visualizzato.
 	\newpage
+	In tutto questo VITON è suddiviso nel suo funzionamento in 3 componenti:
+	\begin{itemize}
+		\item Lo stage1 in cui avviene una prima generazione dell’immagine senza dettagli degli abiti;
+		\item La run dello script matlab Shape Context Wrap per la realizzazione di un TPS Transfromation dalla quale si ottengono i punti di deformazione del piano;
+		\item Lancio dello stage2 (Refinement) in cui grazie ai punti di deformazione ottenuti dallo script matlab vengono applicati i dettagli, trascurati dallo stage1, adattati al vestito.
+	\end{itemize}
+	\newpage
+	\subsection{Qualità output prodotti}
 	\section{VTO con Detail Carving}
 	dsads
-	\subsection{Descrizione codice}	
+	\subsection{Cos'è VTO con Detail Carving}
+	\subsection{Componenti VTODC}
 	dsa
 	\subsection{Qualità output prodotti}
 	Si valutano i segnali che vengono proposti nell'esercizio. Il primo è definito come un segnale con supporto illimitato e con frequenza massima 
@@ -128,24 +148,36 @@
 	
 	\subsection{Descrizione interfaccia}
 	Quello che l’utente si trova davanti è un’interfaccia minimale e alquanto spartana, non era necessario aggiungere tanti dettagli, ma rendere il più possibile leggero l’applicativo dovendolo eseguire via SSH.
-	L’interfaccia è così suddivisa:\newline
-	(1) Anteprima dei Soggetti utilizzabili come base per il VTO.\\
-	(2) Relative codifiche delle immagini dei soggetti.\\
-	(3) Menu a tendina per la selezione del soggetto. \\
-	(4) Tasto avviare l’applicativo per la modifica delle suddivisioni del soggetto. \\
-	(5) Anteprima degli Abiti utilizzabili come target per il VTO. \\
+	L’interfaccia è così suddivisa:
+\newline
+	(1) Anteprima dei Soggetti utilizzabili come base per il VTO.
+\\
+	(2) Relative codifiche delle immagini dei soggetti.
+\\
+	(3) Menu a tendina per la selezione del soggetto. 
+\\
+	(4) Tasto avviare l’applicativo per la modifica delle suddivisioni del soggetto. 
+\\
+	(5) Anteprima degli Abiti utilizzabili come target per il VTO. 
+\\
 	(6) Come sopra, relative codifiche delle immagini degli abiti. \\
-	(7) Menu a tendina per la selezione degli abiti.\\
-	(8) Avvio del file di test.py per la produzione del risultato. \\
+	(7) Menu a tendina per la selezione degli abiti.
+\\
+	(8) Avvio del file di test.py per la produzione del risultato. 
+\\
 	
 	
 	
-	Passando all’interfaccia della mini applicazione per la modifica delle segmentazioni “CANVAS” abbiamo:\newline
+	Passando all’interfaccia della mini applicazione per la modifica delle segmentazioni “CANVAS” abbiamo:
+\newline
 	(9) Menù a tendina per la selezione di import/export dell’immagine da modificare. \\
-	(10) Menu a tendina per la selezione del colore del pennello in base alla parte della segmentazione che si vuole modificare. \\
-	(11) Cursore per la selezione della dimensione del pennello. \\
+	(10) Menu a tendina per la selezione del colore del pennello in base alla parte della segmentazione che si vuole modificare. 
+\\
+	(11) Cursore per la selezione della dimensione del pennello. 
+\\
 	(12) Tasto reset, per rimuovere l’immagine che si stava modificando. \\
-	(13) Piano di disegno su cui si può modificare l’immagine sorgente.\\
+	(13) Piano di disegno su cui si può modificare l’immagine sorgente.
+\\
 	
 	\subsection{Funzionamento}
 	La componente principale che ci permette di modificare le segmentazioni in cui il modello è suddiviso in modo chiaro e intuitivo è resa possibile grazie all’utilizzo di uno script di conversione da Grey Scale a RGB seguendo gli assegnamenti che sono stati scelti dagli sviluppatori di ACGPN. 
