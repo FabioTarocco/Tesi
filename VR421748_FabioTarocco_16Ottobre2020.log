@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  4 OCT 2020 10:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  4 OCT 2020 10:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -676,33 +676,46 @@ Package pdftex.def Info: FaceCake-virtual-dressing-room.jpg  used on input line
  83.
 (pdftex.def)             Requested size: 151.76596pt x 118.88333pt.
 
-[4 <./FaceCake-virtual-dressing-room.jpg>] [5] [6] [7] [8]
-(./VR421748_FabioTarocco_16Ottobre2020.aux) ) 
+[4 <./FaceCake-virtual-dressing-room.jpg>] [5] [6] [7]
+<002474_0.png, id=39, 192.72pt x 256.96pt>
+File: 002474_0.png Graphic file (type png)
+<use 002474_0.png>
+Package pdftex.def Info: 002474_0.png  used on input line 117.
+(pdftex.def)             Requested size: 134.90306pt x 179.87076pt.
+ [8 <./002474_0.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 132--150
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--163
+
+ []
+
+[9] [10] [11] (./VR421748_FabioTarocco_16Ottobre2020.aux) ) 
 Here is how much of TeX's memory you used:
- 16082 strings out of 480608
- 302377 string characters out of 5903631
+ 16089 strings out of 480608
+ 302472 string characters out of 5903631
  543755 words of memory out of 5000000
- 31645 multiletter control sequences out of 15000+600000
- 540266 words of font info for 53 fonts, out of 8000000 for 9000
+ 31651 multiletter control sequences out of 15000+600000
+ 540093 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,7n,60p,819b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2020/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmtt10.pfb>
-Output written on VR421748_FabioTarocco_16Ottobre2020.pdf (9 pages, 330831 byte
-s).
+{/usr/local/texlive/
+2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/202
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/202
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on VR421748_FabioTarocco_16Ottobre2020.pdf (12 pages, 312521 byt
+es).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
+ 81 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
