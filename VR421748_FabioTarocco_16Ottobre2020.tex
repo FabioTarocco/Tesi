@@ -105,23 +105,38 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 		\item La run dello script matlab Shape Context Wrap per la realizzazione di un TPS Transfromation dalla quale si ottengono i punti di deformazione del piano;
 		\item Lancio dello stage2 (Refinement) in cui grazie ai punti di deformazione ottenuti dallo script matlab vengono applicati i dettagli, trascurati dallo stage1, adattati al vestito.
 	\end{itemize}
+
+	\section{VTO con Detail Carving}
+	dsads
+	\subsection{Cos'è VTO con Detail Carving}
+	\subsection{Componenti VTODC}
 	
-	\subsection{Qualità output prodotti}
+	\newpage
+	\section{Confronto risultati fra i due framework}
+	\subsection{Output VITON}
 	Come da richiesta, durante l'esperienza di tirocinio si è dovuto trovare una buona base di confronto per capire il miglioramento/lacune di altri codici per VTO.\\Per fare ciò è stato necessario eseguire più volte il codice VITON per aumentare la pool di campion da confrontare e per capire i limiti dello stesso.\\
 	È stato inoltre deciso che il livello di train in cui si trovava VITON al momento del pull da GitHub dalla repository iniziale fosse sufficiente per ottenere dei risultati accettabili sui quali eseguire poi i confronti con il codice Virtual Try-On with Detail Carving (VTODC).\\
 	
 	I risultati vengo salvati sottoforma di concatenazione di 7 immagini: modello target, abito target, wrap dell'abito target sul soggetto target, risultato stage1, cloth mask dello stage1, risultato finale ossia stage2 (post refinement) e relativa cloth mask.
 	
-	\section{VTO con Detail Carving}
-	dsads
-	\subsection{Cos'è VTO con Detail Carving}
-	\subsection{Componenti VTODC}
-	dsa
-	\subsection{Qualità output prodotti}
-	Si valutano i segnali che vengono proposti nell'esercizio. Il primo è definito come un segnale con supporto illimitato e con frequenza massima 
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=\linewidth]{res_viton.png}
+		\caption{Immagine di output VITON}
+	\end{figure} 
 	
-	\newpage
-	\section{Confronto risultati fra i due framework}
+	\subsection{Output VTODC}
+	Per quanto riguarda la parte di VTODC, come già spiegato nella parte di introduzione al codice, si è cercato di utilizzare lo stesso dataset di VITON, ma non avendo la possibilità di eseguire segmentazione in modo indipendente e non avendo tutti gli input necessari per il funzionamento corretto del codice, si è deciso di utilizzare il dataset fornito nella repository, anche se molto limitato.
+	
+	L’immagine risultato è la concatenazione di 8 immagini: Soggetto target, abito target, posa target, wrap dell’abito sul modello sulla posa target, colormap della suddivisione del soggetto target, nuova colormap della segmentazione del soggetto con posa target, risultato pre-refinement, immagine risultante con miglioramento del dettaglio.
+	
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=\linewidth]{res_vtodc.png}
+		\caption{Immagine di output VTODC}
+	\end{figure} 
+	
+	\subsection{Codici a confronto}
 	Mettendo a confronto i risultati dei due codici si possono trarre le seguenti conclusioni, il  tutto ricordandosi che, non potendo effettuare training su entrambi i codici ci si è basati sui risultati ottenuti con meno ore di train rispetto a quelle con cui sono stati realizzati i paper pubblicati.
 	
 	\begin{itemize}
