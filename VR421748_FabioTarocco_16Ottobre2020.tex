@@ -105,8 +105,13 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 		\item La run dello script matlab Shape Context Wrap per la realizzazione di un TPS Transfromation dalla quale si ottengono i punti di deformazione del piano;
 		\item Lancio dello stage2 (Refinement) in cui grazie ai punti di deformazione ottenuti dallo script matlab vengono applicati i dettagli, trascurati dallo stage1, adattati al vestito.
 	\end{itemize}
-	\newpage
+	
 	\subsection{Qualità output prodotti}
+	Come da richiesta, durante l'esperienza di tirocinio si è dovuto trovare una buona base di confronto per capire il miglioramento/lacune di altri codici per VTO.\\Per fare ciò è stato necessario eseguire più volte il codice VITON per aumentare la pool di campion da confrontare e per capire i limiti dello stesso.\\
+	È stato inoltre deciso che il livello di train in cui si trovava VITON al momento del pull da GitHub dalla repository iniziale fosse sufficiente per ottenere dei risultati accettabili sui quali eseguire poi i confronti con il codice Virtual Try-On with Detail Carving (VTODC).\\
+	
+	I risultati vengo salvati sottoforma di concatenazione di 7 immagini: modello target, abito target, wrap dell'abito target sul soggetto target, risultato stage1, cloth mask dello stage1, risultato finale ossia stage2 (post refinement) e relativa cloth mask.
+	
 	\section{VTO con Detail Carving}
 	dsads
 	\subsection{Cos'è VTO con Detail Carving}
@@ -116,8 +121,20 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	Si valutano i segnali che vengono proposti nell'esercizio. Il primo è definito come un segnale con supporto illimitato e con frequenza massima 
 	
 	\newpage
-	\section{Confronto risultati fra i due framework}	
-	Si valutano i segnali che vengono proposti nell'esercizio. Il primo è definito come un segnale con supporto illimitato e con frequenza massima 
+	\section{Confronto risultati fra i due framework}
+	Mettendo a confronto i risultati dei due codici si possono trarre le seguenti conclusioni, il  tutto ricordandosi che, non potendo effettuare training su entrambi i codici ci si è basati sui risultati ottenuti con meno ore di train rispetto a quelle con cui sono stati realizzati i paper pubblicati.
+	
+	\begin{itemize}
+		\item 	Nel caso di VITON notiamo della difficoltà nel definire in modo chiaro la posizione e conformazione degli arti, sia nel dettaglio (dita) e non (delineamento delle braccia). Questo però accade nel momento in cui si deve ricostruire parte o tutto l’arto da un’immagine di partenza in cui il soggetto presentava maniche lunghe e come abito target si ha una maglia a maniche corte/smanicato.
+		Il concorrente VTODC, invece, riesce in modo più che chiaro a definire sia l’arto e sia le dita del soggetto, in entrambi i casi: partendo da maniche lunghe per passare a corte e viceversa.
+		\item Entrambi i codici hanno difficoltà nel capire quando una maglia/vestito presenta una scollatura pronunciata e non vanno ad eliminare in modo corretto la parte posteriore del vestito.
+		\item	VITON presenta difficolta con soggetti che non sono posizionati in modo frontale all’obbiettivo della fotocamera, ad esempio di spalle o laterali, oppure con figure che appaiono nell’immagine dalla cinta in giù e non solamente vita/busto. 
+		\item	Il problema sopra citato è invece risolto con l’utilizzo di VTODC grazie all’utilizzo di una target pose, cosa che in VITON non era presente.
+		Non solo si possono utilizzare soggetti di spalle, ma anche permette di cambiare completamente la posa di un soggetto.
+		\item 
+		
+	\end{itemize}
+	
 	
 	\newpage
 	\section{Demo PyTryOn: applicazione di ACGPN}
@@ -148,8 +165,14 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	
 	\subsection{Descrizione interfaccia}
 	Quello che l’utente si trova davanti è un’interfaccia minimale e alquanto spartana, non era necessario aggiungere tanti dettagli, ma rendere il più possibile leggero l’applicativo dovendolo eseguire via SSH.
-	L’interfaccia è così suddivisa:
-\newline
+	
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=\linewidth]{PyTryOn_numerata_1.png}
+		\caption{Interfaccia principale}
+	\end{figure} 
+
+L’interfaccia è così suddivisa:\\
 	(1) Anteprima dei Soggetti utilizzabili come base per il VTO.
 \\
 	(2) Relative codifiche delle immagini dei soggetti.
@@ -166,8 +189,11 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	(8) Avvio del file di test.py per la produzione del risultato. 
 \\
 	
-	
-	
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=0.5\linewidth]{PyTryOn_numerata_2.png}
+		\caption{Interfaccia applicazione Canvas}
+	\end{figure} 
 	Passando all’interfaccia della mini applicazione per la modifica delle segmentazioni “CANVAS” abbiamo:
 \newline
 	(9) Menù a tendina per la selezione di import/export dell’immagine da modificare. \\
@@ -185,7 +211,7 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	Nel momento in cui si va a selezionare una delle immagini che si vuole modificare, viene effettuata la conversione e aperta sulla tavola, viceversa, quando si va ad effettuare il salvataggio si passa da RGB a GreyScale. Per effettuare questa conversione abbiamo utilizzato un due cicli annidati e tenendo conto delle varie codifica/valori che ogni pixel assumeva, si andava a sostituire con il codice coloro corrispondente alla controparte convertita.
 	
 	Questo applicativo è stato creato utilizzando i pacchetti TKINTER e PILLOW, il primo per generare GUI su Python mentre il secondo utilizzato ogniqualvolta si devono manipolare immagini, aprirle o salvarle.
-	Utilizzando questi pacchetti è stata generata anche l’interfaccia e il codice dell’applicativo principale “DEMO\_pyvton”, ossia quello che racchiude CAVAS e il test.py per il lancio del VTO.
+	Utilizzando questi pacchetti è stata generata anche l’interfaccia e il codice dell’applicativo principale “DEMO\_PyTryOn”, ossia quello che racchiude CAVAS e il test.py per il lancio del VTO.
 	
 	In questa parte non c’è nulla di articolato, viene data la possibilità all’utente di scegliere l’outfit e il soggetto mediante l’utilizzo di due menu a tendina con i relativi codici dei campioni proposti ed inoltre è presente il tasto per l’avvio di CANVAS.
 	
@@ -210,5 +236,15 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 		\item Il vestito target è più corto di quello del soggetto target. In questo caso il risultato che si ottiene e simile a quelli ottenuti con VITON, quindi una fusione fra abito e pantalone a chiazze.
 	\end{enumerate}
 	
+	
+	\begin{figure}[!htb]
+		\centering
+		\includegraphics[width=0.7\linewidth]{demo2.jpg}
+		\includegraphics[width=0.7\linewidth]{demo2_b.jpg}
+		\includegraphics[width=0.7\linewidth]{OtherRes.jpg}
+		\caption{ILa prima immagine senza utilizzo di Cavas, la seconda con la modifica del label}
+	\end{figure} 
+
+
 	
 \end{document}
