@@ -85,7 +85,7 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	\end{figure} 
 
 	\section{VITON}
-	\subsection{Cos'è VITON?}
+	\subsection{Cos'è VITON}
 	È un Virtual Try-On Image-Based realizzato e pubblicato da alcuni ricercatori/studenti dell’Università del Maryland. Hanno presentato un codice il quale si pone come obiettivo quello di produrre un’immagine di try-On andando semplicemente ad applicare il vestito (sottoforma di immagine RGB) sul soggetto senza l’ausilio di informazioni provenienti dal 3D. Il codice va quindi a sintetizzare una nuova immagine foto-realistica sovrapponendo un artefatto alla regione corrispondente al vestito del soggetto. 
 	
 	VITON nasce per risolvere i problemi delle GANs (generative adversarial network, rete generativa avversaria) le quali riescono a produrre ottimi risultati nella generazione delle immagini, traslazioni image-to-image o task di editing, ma hanno difficoltà nella realizzazione di dettagli e deformazioni realistiche di oggetti, in questo caso l’abito target.
@@ -107,9 +107,14 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	\end{itemize}
 
 	\section{VTO con Detail Carving}
-	dsads
 	\subsection{Cos'è VTO con Detail Carving}
-	\subsection{Componenti VTODC}
+	Framework multilivello per virtual try-on realizzato da alcuni ricercatori/studenti della Huazhong University of Science and Technology in collaborazione con la JD AI Research di pechino. 
+	
+	Sfrutta la possibilità di scegliere pose arbitrarie per produrre l’immagine risultante, ma allo stesso tempo cerca di risolvere il problema di mancanza di dettagli degli altri framework per VTO.  VTODC si pone come obbiettivo quello di mantenere caratteristiche del volto, dell’età e soprattutto dettagli dell’abito pur riuscendo a mantenere un fitting dell’abito target il più realistico possibile. 
+	
+	Il focus principale per il quale è stato realizzato VTODC è quello di andare incontro alle esigenze dei clienti che, non solo vorrebbero provare un abito, ma vedere come quest’ultimo calza in differenti pose e il più realisticamente possibile.
+	
+	A differenza di VITON, VTODC necessita di input diversi dal dataset per poter operare, infatti, non solo chiede segmentazione del soggetto, cloth map e immagini target abito e soggetto, ma richiede la colormap di come  il soggetto è suddiviso in parti e i keypoints delle pose target, in formato json e non più Microsoft Access Table. Il codice inoltre, non è più suddiviso nell’esecuzione di tre parti differenti, bensì ne viene lanciato uno solo, ossia il file “demo.py”. 
 	
 	\newpage
 	\section{Confronto risultati fra i due framework}
@@ -121,8 +126,8 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	
 	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=\linewidth]{res_viton.png}
-		\caption{Immagine di output VITON}
+		\includegraphics[width=\linewidth]{vitonres1_1.png}
+		\caption{Alcuni degli output generati}
 	\end{figure} 
 	
 	\subsection{Output VTODC}
@@ -132,26 +137,60 @@ un catalogo di abbigliamento di un negozio di e-commerce, quindi non attraverso 
 	
 	\begin{figure}[!htb]
 		\centering
-		\includegraphics[width=\linewidth]{res_vtodc.png}
-		\caption{Immagine di output VTODC}
+		\includegraphics[width=\linewidth]{Detailcarvingresult.jpg}
+		\caption{Immagini di output}
 	\end{figure} 
 	
 	\subsection{Codici a confronto}
 	Mettendo a confronto i risultati dei due codici si possono trarre le seguenti conclusioni, il  tutto ricordandosi che, non potendo effettuare training su entrambi i codici ci si è basati sui risultati ottenuti con meno ore di train rispetto a quelle con cui sono stati realizzati i paper pubblicati.
 	
 	\begin{itemize}
+		\item I risultati ottenuti mediante l'utilizzo di VTODC sono molto dettagliati: rappresenta in modo chiaro il pattern nel caso in cui il vestito ne sia fornito e mantiene le caratteristiche facciali del soggetto.
 		\item 	Nel caso di VITON notiamo della difficoltà nel definire in modo chiaro la posizione e conformazione degli arti, sia nel dettaglio (dita) e non (delineamento delle braccia). Questo però accade nel momento in cui si deve ricostruire parte o tutto l’arto da un’immagine di partenza in cui il soggetto presentava maniche lunghe e come abito target si ha una maglia a maniche corte/smanicato.
 		Il concorrente VTODC, invece, riesce in modo più che chiaro a definire sia l’arto e sia le dita del soggetto, in entrambi i casi: partendo da maniche lunghe per passare a corte e viceversa.
-		\item Entrambi i codici hanno difficoltà nel capire quando una maglia/vestito presenta una scollatura pronunciata e non vanno ad eliminare in modo corretto la parte posteriore del vestito.
+		\begin{figure}[!htb]
+			\centering
+			\includegraphics[width=\linewidth]{viton_err_2.png}
+			\caption{Notare come gli arti vengano fusi con l'abito}
+		\end{figure} 
 		\item	VITON presenta difficolta con soggetti che non sono posizionati in modo frontale all’obbiettivo della fotocamera, ad esempio di spalle o laterali, oppure con figure che appaiono nell’immagine dalla cinta in giù e non solamente vita/busto. 
+		
+		\begin{figure}[!htb]
+			\centering
+			\includegraphics[width=\linewidth]{spalleviton.png}
+			\caption{Evidente difficolta nell'identificare la posa}
+		\end{figure} 
 		\item	Il problema sopra citato è invece risolto con l’utilizzo di VTODC grazie all’utilizzo di una target pose, cosa che in VITON non era presente.
 		Non solo si possono utilizzare soggetti di spalle, ma anche permette di cambiare completamente la posa di un soggetto.
-		\item Abiti dettagliati, abiti con fantasie/pattern o con scritte, vengono difficilmente trasportati da VITON sull’immagine risultato. Quello che viene prodotto è un miscuglio non ben definito dell’immagine dell’abito e del colore di base, ottenuto del riempimento all’interno della cloth map effettuato dal codice nella fase preliminare.
+		
+		\begin{figure}[!htb]
+			\centering
+			\includegraphics[width=\linewidth]{scollaturaDC.png}
+			\caption{Soggetto di spalle ricostruito in posa frontale}
+		\end{figure} 
+	
+		\item Abiti dettagliati, abiti con fantasie/pattern o con scritte, vengono difficilmente trasportati da VITON sull’immagine risultato. Quello che viene prodotto è un miscuglio non ben definito dell’immagine dell’abito e del colore di base, ottenuto del riempimento all’interno della cloth map effettuato dal codice nella fase preliminare.\\
+		Ad esempio: La presenza di fasce o scritte sulla maglietta, l’algoritmo le ignora coprendole con il colore dominante della maglietta.
+		\begin{figure}[!htb]
+			\centering
+			\includegraphics[width=\linewidth]{dettaglioV.png}
+			\caption{Stampa sulla maglietta sfumata con l'abito}
+		\end{figure} \newpage
+		\item 	Con VITON se il soggetto ha le mani o gli arti sopra il vestiario, l’algoritmo le considera come parte di quest’ultimo, provvedendo a colorarli della stessa tinta.
+		
+		\begin{figure}[!htb]
+			\centering
+			\includegraphics[width=.2\linewidth]{nomani.png}
+			\caption{Funsione completa degli arti con l'abito}
+		\end{figure} 
 		
 	\end{itemize}
 	
 	
+	Si capisce quindi che, con il livello di training utilizzato per effettuare i test, la versione con Detail Carving produce dei risultati notevolmente migliori rispetto al concorrente VITON.
+	Inoltre, sarebbe stato interessante effettuare alcuni cicli di train per migliorare i risultati di VITON, in modo tale da verificare o meno le stesse capacità di produzione di immagini artefatte di VTODC, in contemporanea sarebbe risultato ancora più chiaro il confronto se entrambi i codici avessero operato sullo stesso dataset.
 	\newpage
+	
 	\section{Demo PyTryOn: applicazione di ACGPN}
 	\subsection{Introduzione alla Demo}
 	L’applicativo che si è deciso di produrre doveva soddisfare due requisiti principali:
@@ -226,7 +265,7 @@ L’interfaccia è così suddivisa:\\
 	Nel momento in cui si va a selezionare una delle immagini che si vuole modificare, viene effettuata la conversione e aperta sulla tavola, viceversa, quando si va ad effettuare il salvataggio si passa da RGB a GreyScale. Per effettuare questa conversione abbiamo utilizzato un due cicli annidati e tenendo conto delle varie codifica/valori che ogni pixel assumeva, si andava a sostituire con il codice coloro corrispondente alla controparte convertita.
 	
 	Questo applicativo è stato creato utilizzando i pacchetti TKINTER e PILLOW, il primo per generare GUI su Python mentre il secondo utilizzato ogniqualvolta si devono manipolare immagini, aprirle o salvarle.
-	Utilizzando questi pacchetti è stata generata anche l’interfaccia e il codice dell’applicativo principale “DEMO\_PyTryOn”, ossia quello che racchiude CAVAS e il test.py per il lancio del VTO.
+	Utilizzando questi pacchetti è stata generata anche l’interfaccia e il codice dell’applicativo principale “DEMO\_PyTryOn”, ossia quello che racchiude CANVAS e il test.py per il lancio del VTO.
 	
 	In questa parte non c’è nulla di articolato, viene data la possibilità all’utente di scegliere l’outfit e il soggetto mediante l’utilizzo di due menu a tendina con i relativi codici dei campioni proposti ed inoltre è presente il tasto per l’avvio di CANVAS.
 	
@@ -246,8 +285,8 @@ L’interfaccia è così suddivisa:\\
 	Il label che si va a modificare viene preso in considerazione in modo marginale, viene anzi, effettuate delle modifiche ulteriori su di esso per migliorare la resa dell’abito target sul soggetto target, tendendo conto delle condizioni iniziali e finali a cui si vuole arrivare. 
 	Queste possono essere suddivise in 3 alternative:
 	\begin{enumerate}
-		\item Il soggetto iniziale presenta un abito a maniche lunghe mentre l’abito target è a maniche corte, comporta la mancanza di riferimenti per la ricostruzione delle braccia scoperte e per risolvere questo interviene ACGPN
-		\item Il soggetto target presente un abito a maniche corte mentre l’abito d’arrivo è a maniche lunghe, semplicemente avviene una sovrapposizione, seguendo il wrapping corretto, dell’abito sul soggetto
+		\item Il soggetto iniziale presenta un abito a maniche lunghe mentre l’abito target è a maniche corte, comporta la mancanza di riferimenti per la ricostruzione delle braccia scoperte e per risolvere questo interviene ACGPN sovrascrivendo le modifiche manualmente eseguite con CANVAS.
+		\item Il soggetto target presente un abito a maniche corte mentre l’abito d’arrivo è a maniche lunghe, semplicemente avviene una sovrapposizione, seguendo il wrapping corretto, dell’abito sul soggetto, ignorando eventuali modifiche.
 		\item Il vestito target è più corto di quello del soggetto target. In questo caso il risultato che si ottiene e simile a quelli ottenuti con VITON, quindi una fusione fra abito e pantalone a chiazze.
 	\end{enumerate}
 	
