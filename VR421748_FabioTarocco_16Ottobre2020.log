@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  5 OCT 2020 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.7.8)  5 OCT 2020 16:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -691,14 +691,14 @@ File: res_vtodc.png Graphic file (type png)
 <use res_vtodc.png>
 Package pdftex.def Info: res_vtodc.png  used on input line 135.
 (pdftex.def)             Requested size: 360.0pt x 60.6527pt.
-[7 <./res_viton.png>] [8 <./res_vtodc.png>]
-<002474_0.png, id=48, 192.72pt x 256.96pt>
+[7 <./res_viton.png>] [8 <./res_vtodc.png>] [9]
+<002474_0.png, id=51, 192.72pt x 256.96pt>
 File: 002474_0.png Graphic file (type png)
 <use 002474_0.png>
 Package pdftex.def Info: 002474_0.png  used on input line 167.
 (pdftex.def)             Requested size: 134.90306pt x 179.87076pt.
- [9 <./002474_0.png (PNG copy)>]
-<PyTryOn_numerata_1.png, id=52, 920.68968pt x 451.6875pt>
+ [10 <./002474_0.png (PNG copy)>]
+<PyTryOn_numerata_1.png, id=55, 920.68968pt x 451.6875pt>
 File: PyTryOn_numerata_1.png Graphic file (type png)
 <use PyTryOn_numerata_1.png>
 Package pdftex.def Info: PyTryOn_numerata_1.png  used on input line 186.
@@ -708,8 +708,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--206
 
  []
 
-[10 <./PyTryOn_numerata_1.png>]
-<PyTryOn_numerata_2.png, id=57, 425.33907pt x 532.23843pt>
+[11 <./PyTryOn_numerata_1.png>]
+<PyTryOn_numerata_2.png, id=60, 425.33907pt x 532.23843pt>
 File: PyTryOn_numerata_2.png Graphic file (type png)
 <use PyTryOn_numerata_2.png>
 Package pdftex.def Info: PyTryOn_numerata_2.png  used on input line 209.
@@ -719,23 +719,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 212--222
 
  []
 
-[11 <./PyTryOn_numerata_2.png>] [12]
-<demo2.jpg, id=66, 578.16pt x 154.176pt>
+[12 <./PyTryOn_numerata_2.png>] [13]
+<demo2.jpg, id=69, 578.16pt x 154.176pt>
 File: demo2.jpg Graphic file (type jpg)
 <use demo2.jpg>
 Package pdftex.def Info: demo2.jpg  used on input line 257.
 (pdftex.def)             Requested size: 251.9989pt x 67.19774pt.
-<demo2_b.jpg, id=67, 578.16pt x 154.176pt>
+<demo2_b.jpg, id=70, 578.16pt x 154.176pt>
 File: demo2_b.jpg Graphic file (type jpg)
 <use demo2_b.jpg>
 Package pdftex.def Info: demo2_b.jpg  used on input line 258.
 (pdftex.def)             Requested size: 251.9989pt x 67.19774pt.
-<OtherRes.jpg, id=68, 963.6pt x 256.96pt>
+<OtherRes.jpg, id=71, 963.6pt x 256.96pt>
 File: OtherRes.jpg Graphic file (type jpg)
 <use OtherRes.jpg>
 Package pdftex.def Info: OtherRes.jpg  used on input line 259.
 (pdftex.def)             Requested size: 251.9989pt x 67.19618pt.
- [13 <./demo2.jpg> <./demo2_b.jpg> <./OtherRes.jpg>] (./VR421748_FabioTarocco_1
+ [14 <./demo2.jpg> <./demo2_b.jpg> <./OtherRes.jpg>] (./VR421748_FabioTarocco_1
 6Ottobre2020.aux) ) 
 Here is how much of TeX's memory you used:
  16131 strings out of 480608
@@ -755,11 +755,11 @@ m/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm10
 95.pfb>
-Output written on VR421748_FabioTarocco_16Ottobre2020.pdf (14 pages, 1399216 by
+Output written on VR421748_FabioTarocco_16Ottobre2020.pdf (15 pages, 1399730 by
 tes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
